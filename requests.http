@@ -1,0 +1,23 @@
+### Should be allowed
+GET http://localhost:8080/api/products
+
+
+### Should be not allowed
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+    "test": "data"
+}
+
+
+### Should be not allowed
+PUT http://localhost:8080/api/products/1
+Content-Type: application/json
+
+{
+    "test": "data"
+}
+
+### Should be not allowed
+DELETE http://localhost:8080/api/products/1
