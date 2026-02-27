@@ -34,4 +34,7 @@ public class OrderItem {
 
     @Column(name = "product_id")
     private Long productId;
+
+    // ______________________________________________________________________
+    private Order order;
 }
