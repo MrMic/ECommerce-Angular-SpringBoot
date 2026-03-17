@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import lombok.Getter;
@@ -31,9 +29,8 @@ public class Address {
     @Column(name = "state")
     private String state;
 
-    @ManyToOne
-    @JoinColumn(name = "country")
-    private Country country;
+    @Column(name = "country")
+    private String country;
 
     @Column(name = "zip_code")
     private String zipCode;

@@ -1,23 +1,74 @@
 ### Should be allowed
-GET http://localhost:8080/api/products
+
+GET http://localhost:8080/api/products HTTP/1.1
 
 
 ### Should be not allowed
-POST http://localhost:8080/api/products
+
+POST http://localhost:8080/api/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "test": "data"
+  "test": "data"
 }
 
 
 ### Should be not allowed
-PUT http://localhost:8080/api/products/1
+
+PUT http://localhost:8080/api/products/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "test": "data"
+  "test": "data"
 }
 
+
 ### Should be not allowed
-DELETE http://localhost:8080/api/products/1
+
+DELETE http://localhost:8080/api/products/1 HTTP/1.1
+
+
+### Add additional Order
+
+POST http://localhost:8080/api/checkout/purchase HTTP/1.1
+Content-Type: application/json
+
+{
+   "customer":{
+      "firstName":"afasa",
+      "lastName":"afasa",
+      "email":"afasa@test.com"
+   },
+   "shippingAddress":{
+      "street":"afasa",
+      "city":"afasa",
+      "state":"Alberta",
+      "country":"Canada",
+      "zipCode":"afasa"
+   },
+   "billingAddress":{
+      "city":"afasa",
+      "state":"Alberta",
+      "country":"Canada",
+      "zipCode":"afasa"
+   },
+   "order":{
+      "totalPrice":36.98,
+      "totalQuantity":2
+   },
+   "orderItems":[
+      {
+         "imageUrl":"assets/images/products/coffeemugs/coffeemug-luv2code-1000.png",
+         "quantity":1,
+         "unitPrice":18.99,
+         "productId":26
+      },
+      {
+         "imageUrl":"assets/images/products/mousepads/mousepad-luv2code-1000.png",
+         "quantity":1,
+         "unitPrice":17.99,
+         "productId":51
+      }
+   ]
+}
+
